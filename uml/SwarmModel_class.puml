@@ -1,0 +1,54 @@
+@startuml
+
+class SwarmModel {
+    +thread_started_signal: pyqtSignal
+    +thread_finished_signal: pyqtSignal
+    +response_signal: pyqtSignal
+    +response_finished_signal: pyqtSignal
+    +swarm_thread: SwarmThread
+    +run_agent(args)
+    +handle_thread_finished()
+    +force_stop()
+}
+
+class SwarmThread {
+    +response_signal: pyqtSignal
+    +response_finished_signal: pyqtSignal
+    - openai: OpenAI
+    - client: Swarm
+    - search_tool_args: dict
+    - query: str
+    - messages: list
+    - stream: bool
+    - force_stop: bool
+    --
+    - orchestrator: Agent
+    - programmer_agent: Agent
+    - tester_agent: Agent
+    - search_agent: Agent
+    --
+    + run()
+    + set_force_stop(force_stop)
+    + handle_response(response)
+    + handle_stream_response(response)
+    + finish_run(model, finish_reason, stream)
+    + create_all_agents(args)
+    + create_agent(agent_name, agent_instructions, agent_functions)
+    + transfer_to_search_agent()
+    + transfer_to_programmer_agent()
+    + transfer_to_tester_agent()
+    + transfer_to_orchestrator_agent()
+    + search_web(query)
+}
+
+class TavilySearch {
+    - search_args: dict
+    - client: TavilyClient
+    --
+    + search(query)
+}
+
+SwarmModel --> SwarmThread
+SwarmThread --> TavilySearch
+
+@enduml

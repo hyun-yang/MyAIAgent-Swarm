@@ -1,0 +1,61 @@
+@startuml
+class MainWindow {
+    - _settings
+    - _database
+    - _chat
+    - progress_bar
+    + initialize_manager()
+    + initialize_ui()
+    + initialize_window()
+    + set_main_widgets()
+}
+
+class SettingsManager {
+    + initialize_settings()
+    + get_settings(): dict
+}
+
+class DataManager {
+    + initialize_database()
+    + get_database(): object
+}
+
+class ChatPresenter {
+    - chatViewModel: ChatListModel
+    - chatView: ChatView
+    - swarmModel: SwarmModel
+}
+
+class QStackedWidget {
+    + addWidget(widget)
+}
+
+class ChatListModel {
+    + new_chat_main_id_signal: pyqtSignal
+    + remove_chat_signal: pyqtSignal
+}
+
+class ChatView {
+    + submitted_signal: pyqtSignal
+    + stop_signal: pyqtSignal
+    + reload_chat_detail_signal: pyqtSignal
+}
+
+class SwarmModel {
+    + thread_started_signal: pyqtSignal
+    + thread_finished_signal: pyqtSignal
+    + response_signal: pyqtSignal
+    + response_finished_signal: pyqtSignal
+    + run_agent()
+    + handle_thread_finished()
+    + force_stop()
+}
+
+MainWindow --> ChatPresenter
+MainWindow --> SettingsManager
+MainWindow --> DataManager
+MainWindow --> QStackedWidget
+ChatPresenter --> ChatListModel
+ChatPresenter --> ChatView
+ChatPresenter --> SwarmModel
+@enduml

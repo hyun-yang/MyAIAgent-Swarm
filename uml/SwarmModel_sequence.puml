@@ -1,0 +1,28 @@
+@startuml
+
+actor User
+
+participant SwarmModel
+participant SwarmThread
+
+User -> SwarmModel: run_agent(args)
+alt if swarm_thread is running
+    SwarmModel -> SwarmThread: wait()
+end
+
+SwarmModel -> SwarmThread: new SwarmThread(args)
+SwarmModel -> SwarmThread: start()
+SwarmThread -> SwarmModel: started (signal)
+SwarmModel -> SwarmModel: thread_started_signal.emit()
+
+SwarmThread -> SwarmModel: response_signal (signal)
+SwarmModel -> SwarmModel: response_signal.emit()
+
+SwarmThread -> SwarmModel: response_finished_signal (signal)
+SwarmModel -> SwarmModel: response_finished_signal.emit()
+
+SwarmThread -> SwarmModel: finished (signal)
+SwarmModel -> SwarmModel: handle_thread_finished()
+SwarmModel -> SwarmModel: thread_finished_signal.emit()
+
+@enduml

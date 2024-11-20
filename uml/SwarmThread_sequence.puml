@@ -1,0 +1,35 @@
+@startuml
+actor User
+participant SwarmThread
+participant Swarm
+participant Agent
+participant TavilySearch
+
+User -> SwarmThread: run()
+SwarmThread -> Swarm: run(agent, messages, stream)
+Swarm -> Agent: run(agent, messages, execute_tools)
+alt agent is Search Agent
+    Agent -> TavilySearch: search(query)
+    TavilySearch -> Agent: search results
+end
+Agent -> Swarm : response
+alt stream is True
+    Swarm -> SwarmThread: handle_stream_response(response)
+    loop for each chunk in response
+        alt force_stop is True
+            SwarmThread -> SwarmThread: finish_run(model, FORCE_STOP, stream)
+            break
+        else
+            SwarmThread -> SwarmThread: response_signal.emit(content, stream)
+        end
+    end
+else
+    Swarm -> SwarmThread: handle_response(response)
+    alt force_stop is True
+        SwarmThread -> SwarmThread: finish_run(model, FORCE_STOP, stream)
+    else
+        SwarmThread -> SwarmThread: response_signal.emit(result, stream)
+        SwarmThread -> SwarmThread: finish_run(model, NORMAL_STOP, stream)
+    end
+end
+@enduml
