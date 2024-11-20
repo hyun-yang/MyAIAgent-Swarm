@@ -17,10 +17,6 @@ class ChatPresenter(QWidget):
     def __init__(self):
         super().__init__()
         self._chat_main_id = None
-        self._chat_main_index = None
-        self.retriever = None
-        self.graph = None
-        self.image_data = None
         self.initialize_manager()
         self.initialize_ui()
 
