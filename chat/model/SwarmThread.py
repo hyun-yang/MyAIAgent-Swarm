@@ -129,7 +129,7 @@ class SwarmThread(QThread):
         return self.programmer_agent
 
     def transfer_to_tester_agent(self):
-        """transfer to Tester Agent to provide reliable feedback for the programmer agent to optimise the code iteratively"""
+        """transfer to Tester Agent to provide reliable feedback for the Programmer Agent to optimise the code iteratively"""
         return self.tester_agent
 
     def transfer_to_orchestrator_agent(self):
