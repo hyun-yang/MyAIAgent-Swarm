@@ -610,19 +610,6 @@ pyinstaller --add-data "ico/*.svg:ico" --add-data "ico/*.png:ico" --add-data "sp
 ![MyAIAgenet-Swarm-SwarmThread-Sequence](https://github.com/user-attachments/assets/fe2e0d02-6c21-476c-93e4-a9ffdfae044b)
 
 
-## Operator
-
-**OpenAI** is expected to release a new AI Agent system called **Operator** in the near future. 
-
-Personally, I hope the **Operator** framework will include features such as:
-
-* More effective dynamic agent creation
-* The ability to use separate LLMs (or SLMs) for each agent
-* Enhanced control over the workflow of each agent
-* Tools to monitor the workflow and interactions of agents
-
-These features would make the system more powerful and flexible for various use cases.
-
 ## License
 
 Distributed under the MIT License.
