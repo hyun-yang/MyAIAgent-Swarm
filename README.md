@@ -61,6 +61,26 @@ python main.py
 4. Configure API Key
     * Open 'Setting' menu and set OpenAI and Tavily API key.
 
+## Agent Prompt
+
+The **Agent Prompt Sample** section below contains prompts for the **Orchestrator Agent, Programmer Agent, Tester Agent, and Search Agent**.
+This sample specifies concrete agent names, however you can also use more general names. 
+
+For example:
+
+* Orchestrator Agent -> Main Agent (or Controller Agent, Coordinator Agent, Supervisor Agent, etc.)
+* Programmer Agent -> Output Agent
+* Tester Agent -> Review Agent
+* Search Agent -> Helper Agent
+
+By naming the agents in this way, you can define and use specific prompts for each agent as needed.
+
+Among these four agents, if we take the **Output Agent** as an example, this app uses a prompt designed for the **Programmer Agent**. 
+
+However, the Output Agent could also represent roles such as a **Music Composer, Video Creator, Writer**, and so on.
+
+By appropriately modifying the prompts for the **Main/Review/Helper Agents** to align with the **Output Agent**, you can achieve the desired results.
+
 
 ## Agent Prompt Sample
 
@@ -589,6 +609,19 @@ pyinstaller --add-data "ico/*.svg:ico" --add-data "ico/*.png:ico" --add-data "sp
 
 ![MyAIAgenet-Swarm-SwarmThread-Sequence](https://github.com/user-attachments/assets/fe2e0d02-6c21-476c-93e4-a9ffdfae044b)
 
+
+## Operator
+
+**OpenAI** is expected to release a new AI Agent system called **Operator** in the near future. 
+
+Personally, I hope the **Operator** framework will include features such as:
+
+* More effective dynamic agent creation
+* The ability to use separate LLMs (or SLMs) for each agent
+* Enhanced control over the workflow of each agent
+* Tools to monitor the workflow and interactions of agents
+
+These features would make the system more powerful and flexible for various use cases.
 
 ## License
 
