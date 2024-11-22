@@ -6,7 +6,6 @@ class SwarmThread {
     - openai: OpenAI
     - client: Swarm
     - search_tool_args: dict
-    - image_tool_args: dict
     - query: str
     - messages: list
     - stream: bool

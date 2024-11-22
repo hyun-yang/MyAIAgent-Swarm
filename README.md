@@ -602,7 +602,7 @@ pyinstaller --add-data "ico/*.svg:ico" --add-data "ico/*.png:ico" --add-data "sp
 
 * SwarmThread Class Diagram
 
-![MyAIAgenet-Swarm-SwarmThread-Class](https://github.com/user-attachments/assets/dfba41a0-6ef4-43cd-9ceb-55b9ebdb05fa)
+![MyAIAgenet-Swarm-SwarmThread-Class-1](https://github.com/user-attachments/assets/9ec47c87-438d-4d4d-abe0-5884cd9d3065)
 
 
 * SwarmThread Sequence Diagram
