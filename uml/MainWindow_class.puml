@@ -46,6 +46,7 @@ class SwarmModel {
     + thread_finished_signal: pyqtSignal
     + response_signal: pyqtSignal
     + response_finished_signal: pyqtSignal
+    + swarm_thread: SwarmThread
     + run_agent()
     + handle_thread_finished()
     + force_stop()

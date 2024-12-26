@@ -592,7 +592,7 @@ pyinstaller --add-data "ico/*.svg:ico" --add-data "ico/*.png:ico" --add-data "sp
 
 * Main Class Diagram
 
-![MyAIAgenet-Swarm-Main-Class](https://github.com/user-attachments/assets/1bc8284c-e8a1-4ace-870a-94b0d08909cf)
+![MyAIAgenet-Swarm-Main-Class-1](https://github.com/user-attachments/assets/07c18b18-5448-49bb-807e-d2d13d9e9746)
 
 
 * SwarmModel Class Diagram
